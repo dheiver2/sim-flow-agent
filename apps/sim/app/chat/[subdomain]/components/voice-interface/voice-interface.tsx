@@ -234,7 +234,7 @@ export function VoiceInterface({
 
     recognition.continuous = true
     recognition.interimResults = true
-    recognition.lang = 'en-US'
+    recognition.lang = 'pt-BR'
 
     recognition.onstart = () => {}
 
@@ -502,11 +502,11 @@ export function VoiceInterface({
   const getStatusText = () => {
     switch (state) {
       case 'listening':
-        return 'Listening...'
+        return 'Ouvindo...'
       case 'agent_speaking':
-        return 'Press Space or tap to interrupt'
+        return 'Pressione Espaço ou toque para interromper'
       default:
-        return isInitialized ? 'Ready' : 'Initializing...'
+        return isInitialized ? 'Pronto' : 'Inicializando...'
     }
   }
 

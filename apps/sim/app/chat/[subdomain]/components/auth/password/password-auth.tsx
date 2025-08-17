@@ -35,7 +35,7 @@ export default function PasswordAuth({
   // Handle authentication
   const handleAuthenticate = async () => {
     if (!password.trim()) {
-      setAuthError('Password is required')
+      setAuthError('Senha é obrigatória')
       return
     }
 
@@ -57,7 +57,7 @@ export default function PasswordAuth({
 
       if (!response.ok) {
         const errorData = await response.json()
-        setAuthError(errorData.error || 'Authentication failed')
+        setAuthError(errorData.error || 'Falha na autenticação')
         return
       }
 
@@ -68,7 +68,7 @@ export default function PasswordAuth({
       setPassword('')
     } catch (error) {
       console.error('Authentication error:', error)
-      setAuthError('An error occurred during authentication')
+      setAuthError('Ocorreu um erro durante a autenticação')
     } finally {
       setIsAuthenticating(false)
     }
@@ -129,7 +129,7 @@ export default function PasswordAuth({
         <div className='p-6'>
           <div className='mb-4 text-center'>
             <p className='text-muted-foreground'>
-              This chat is password-protected. Please enter the password to continue.
+              Este chat é protegido por senha. Digite a senha para continuar.
             </p>
           </div>
 
@@ -153,7 +153,7 @@ export default function PasswordAuth({
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder='Enter password'
+                placeholder='Digite a senha'
                 disabled={isAuthenticating}
                 autoComplete='new-password'
                 className='w-full'
@@ -170,10 +170,10 @@ export default function PasswordAuth({
               {isAuthenticating ? (
                 <div className='flex items-center justify-center'>
                   <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                  Authenticating...
+                  Autenticando...
                 </div>
               ) : (
-                'Continue'
+                'Continuar'
               )}
             </Button>
           </form>

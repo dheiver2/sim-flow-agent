@@ -231,17 +231,17 @@ export function WorkflowTextEditor({
                   className='flex items-center gap-2'
                 >
                   <Save className='h-4 w-4' />
-                  {isSaving ? 'Saving...' : 'Save'}
+                  {isSaving ? 'Salvando...' : 'Salvar'}
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
                 {!isValid
-                  ? 'Fix validation errors to save'
+                  ? 'Corrija os erros de validação para salvar'
                   : !hasUnsavedChanges
-                    ? 'No changes to save'
+                    ? 'Nenhuma alteração para salvar'
                     : disabled
-                      ? 'Editor is disabled'
-                      : 'Save changes to workflow'}
+                      ? 'Editor está desabilitado'
+                      : 'Salvar alterações no workflow'}
               </TooltipContent>
             </Tooltip>
           </div>
@@ -252,16 +252,16 @@ export function WorkflowTextEditor({
           {isValid ? (
             <div className='flex items-center gap-1 text-green-600'>
               <Check className='h-4 w-4' />
-              Valid {currentFormat.toUpperCase()}
+              {currentFormat.toUpperCase()} Válido
             </div>
           ) : (
             <div className='flex items-center gap-1 text-red-600'>
               <AlertCircle className='h-4 w-4' />
-              {validationErrors.length} validation error{validationErrors.length !== 1 ? 's' : ''}
+              {validationErrors.length} erro{validationErrors.length !== 1 ? 's' : ''} de validação
             </div>
           )}
 
-          {hasUnsavedChanges && <div className='text-orange-600'>• Unsaved changes</div>}
+          {hasUnsavedChanges && <div className='text-orange-600'>• Alterações não salvas</div>}
         </div>
       </div>
 
@@ -277,7 +277,7 @@ export function WorkflowTextEditor({
                     <AlertCircle className='h-4 w-4' />
                     <AlertDescription className='text-sm'>
                       {error.line && error.column
-                        ? `Line ${error.line}, Column ${error.column}: ${error.message}`
+                        ? `Linha ${error.line}, Coluna ${error.column}: ${error.message}`
                         : error.message}
                     </AlertDescription>
                   </Alert>
@@ -334,7 +334,7 @@ export function WorkflowTextEditor({
             value={content}
             onChange={handleContentChange}
             language={editorLanguage}
-            placeholder={`Enter ${currentFormat.toUpperCase()} workflow definition...`}
+            placeholder={`Digite a definição do workflow em ${currentFormat.toUpperCase()}...`}
             className={cn(
               'h-full w-full overflow-auto rounded-md border',
               !isValid && 'border-red-500',

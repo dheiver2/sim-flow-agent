@@ -7,8 +7,8 @@ import { Send, Square } from 'lucide-react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { VoiceInput } from '@/app/chat/[subdomain]/components/input/voice-input'
 
-const PLACEHOLDER_MOBILE = 'Enter a message'
-const PLACEHOLDER_DESKTOP = 'Enter a message or click the mic to speak'
+const PLACEHOLDER_MOBILE = 'Digite uma mensagem'
+const PLACEHOLDER_DESKTOP = 'Digite uma mensagem ou clique no microfone para falar'
 const MAX_TEXTAREA_HEIGHT = 120 // Max height in pixels (e.g., for about 3-4 lines)
 const MAX_TEXTAREA_HEIGHT_MOBILE = 100 // Smaller for mobile
 
@@ -119,7 +119,7 @@ export const ChatInput: React.FC<{
                 </div>
               </TooltipTrigger>
               <TooltipContent side='top' className='border border-gray-200 bg-white text-gray-900'>
-                <p>Start voice conversation</p>
+                <p>Iniciar conversa por voz</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -155,8 +155,10 @@ export const ChatInput: React.FC<{
                       </div>
                     </TooltipTrigger>
                     <TooltipContent side='top'>
-                      <p>Start voice conversation</p>
-                      <span className='text-gray-500 text-xs'>Click to enter voice mode</span>
+                      <p>Iniciar conversa por voz</p>
+                      <span className='text-gray-500 text-xs'>
+                        Clique para entrar no modo de voz
+                      </span>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>

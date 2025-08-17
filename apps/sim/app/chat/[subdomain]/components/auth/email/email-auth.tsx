@@ -55,14 +55,14 @@ export default function EmailAuth({
 
       if (!response.ok) {
         const errorData = await response.json()
-        setAuthError(errorData.error || 'Failed to send verification code')
+        setAuthError(errorData.error || 'Falha ao enviar código de verificação')
         return
       }
 
       setShowOtpVerification(true)
     } catch (error) {
       console.error('Error sending OTP:', error)
-      setAuthError('An error occurred while sending the verification code')
+      setAuthError('Ocorreu um erro ao enviar o código de verificação')
     } finally {
       setIsSendingOtp(false)
     }
@@ -90,14 +90,14 @@ export default function EmailAuth({
 
       if (!response.ok) {
         const errorData = await response.json()
-        setAuthError(errorData.error || 'Invalid verification code')
+        setAuthError(errorData.error || 'Código de verificação inválido')
         return
       }
 
       onAuthSuccess()
     } catch (error) {
       console.error('Error verifying OTP:', error)
-      setAuthError('An error occurred during verification')
+      setAuthError('Ocorreu um erro durante a verificação')
     } finally {
       setIsVerifyingOtp(false)
     }
@@ -119,14 +119,14 @@ export default function EmailAuth({
 
       if (!response.ok) {
         const errorData = await response.json()
-        setAuthError(errorData.error || 'Failed to resend verification code')
+        setAuthError(errorData.error || 'Falha ao reenviar código de verificação')
         return
       }
 
-      setAuthError('Verification code sent. Please check your email.')
+      setAuthError('Código de verificação enviado. Verifique seu email.')
     } catch (error) {
       console.error('Error resending OTP:', error)
-      setAuthError('An error occurred while resending the verification code')
+      setAuthError('Ocorreu um erro ao reenviar o código de verificação')
     } finally {
       setIsSendingOtp(false)
     }
@@ -189,7 +189,7 @@ export default function EmailAuth({
             <>
               <div className='mb-4 text-center'>
                 <p className='text-muted-foreground'>
-                  This chat requires email verification. Please enter your email to continue.
+                  Este chat requer verificação de email. Digite seu email para continuar.
                 </p>
               </div>
 
@@ -210,7 +210,7 @@ export default function EmailAuth({
                   <Input
                     id='email'
                     type='email'
-                    placeholder='Email address'
+                    placeholder='Endereço de email'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyDown={handleEmailKeyDown}
@@ -231,10 +231,10 @@ export default function EmailAuth({
                   {isSendingOtp ? (
                     <div className='flex items-center justify-center'>
                       <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                      Sending Code...
+                      Enviando Código...
                     </div>
                   ) : (
-                    'Continue'
+                    'Continuar'
                   )}
                 </Button>
               </form>
@@ -243,7 +243,7 @@ export default function EmailAuth({
             <div className='space-y-4'>
               <div className='text-center'>
                 <p className='mb-1 text-muted-foreground text-sm'>
-                  Enter the verification code sent to
+                  Digite o código de verificação enviado para
                 </p>
                 <p className='break-all font-medium text-sm'>{email}</p>
               </div>
@@ -270,7 +270,7 @@ export default function EmailAuth({
                   disabled={isSendingOtp}
                   className='text-primary text-sm hover:underline disabled:opacity-50'
                 >
-                  {isSendingOtp ? 'Sending...' : 'Resend code'}
+                  {isSendingOtp ? 'Enviando...' : 'Reenviar código'}
                 </button>
                 <span className='mx-2 text-neutral-300 dark:text-neutral-600'>•</span>
                 <button
@@ -282,7 +282,7 @@ export default function EmailAuth({
                   }}
                   className='text-primary text-sm hover:underline'
                 >
-                  Change email
+                  Alterar email
                 </button>
               </div>
             </div>
