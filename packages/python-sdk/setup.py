@@ -6,9 +6,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="simstudio-sdk",
     version="0.1.0",
-    author="Sim",
+    author="Mangaba Flow",
     author_email="support@sim.ai",
-    description="Sim SDK - Execute workflows programmatically",
+    description="Mangaba Flow SDK - Execute workflows programmatically",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/simstudioai/sim",

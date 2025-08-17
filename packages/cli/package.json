@@ -1,7 +1,7 @@
 {
   "name": "simstudio",
   "version": "0.1.19",
-  "description": "Sim CLI - Run Sim with a single command",
+  "description": "Mangaba Flow CLI - Run Mangaba Flow with a single command",
   "main": "dist/index.js",
   "type": "module",
   "bin": {

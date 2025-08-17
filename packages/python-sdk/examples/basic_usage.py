@@ -191,7 +191,7 @@ def error_handling_example():
 
 
 if __name__ == "__main__":
-    print("🚀 Running Sim Python SDK Examples\n")
+    print("🚀 Running Mangaba Flow Python SDK Examples\n")
     
     # Check if API key is set
     if not os.getenv("SIMSTUDIO_API_KEY"):

@@ -1,7 +1,7 @@
 {
   "name": "simstudio-ts-sdk",
   "version": "0.1.0",
-  "description": "Sim SDK - Execute workflows programmatically",
+  "description": "Mangaba Flow SDK - Execute workflows programmatically",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
