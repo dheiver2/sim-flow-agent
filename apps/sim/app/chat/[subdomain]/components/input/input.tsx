@@ -156,7 +156,9 @@ export const ChatInput: React.FC<{
                     </TooltipTrigger>
                     <TooltipContent side='top'>
                       <p>Iniciar conversa por voz</p>
-                      <span className='text-gray-500 text-xs'>Clique para entrar no modo de voz</span>
+                      <span className='text-gray-500 text-xs'>
+                        Clique para entrar no modo de voz
+                      </span>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>

@@ -1,97 +1,97 @@
 <p align="center">
-  <img src="apps/sim/public/static/sim.png" alt="Sim Logo" width="500"/>
+  <img src="apps/sim/public/static/sim.png" alt="Logo do Sim" width="500"/>
 </p>
 
 <p align="center">
-  <a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache-2.0"></a>
-  <a href="https://discord.gg/Hr4UWYEcTT"><img src="https://img.shields.io/badge/Discord-Join%20Server-7289DA?logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="Licença: Apache-2.0"></a>
+  <a href="https://discord.gg/Hr4UWYEcTT"><img src="https://img.shields.io/badge/Discord-Entrar%20no%20Servidor-7289DA?logo=discord&logoColor=white" alt="Discord"></a>
   <a href="https://x.com/simdotai"><img src="https://img.shields.io/twitter/follow/simstudioai?style=social" alt="Twitter"></a>
-  <a href="https://github.com/simstudioai/sim/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome"></a>
-  <a href="https://docs.sim.ai"><img src="https://img.shields.io/badge/Docs-visit%20documentation-blue.svg" alt="Documentation"></a>
+  <a href="https://github.com/simstudioai/sim/pulls"><img src="https://img.shields.io/badge/PRs-bem%20vindos-brightgreen.svg" alt="PRs bem-vindos"></a>
+  <a href="https://docs.sim.ai"><img src="https://img.shields.io/badge/Docs-visitar%20documentação-blue.svg" alt="Documentação"></a>
 </p>
 
 <p align="center">
-  <strong>Sim</strong> is a lightweight, user-friendly platform for building AI agent workflows.
+  <strong>Sim</strong> é uma plataforma leve e amigável para construir workflows de agentes de IA.
 </p>
 
 <p align="center">
-  <img src="apps/sim/public/static/demo.gif" alt="Sim Demo" width="800"/>
+  <img src="apps/sim/public/static/demo.gif" alt="Demo do Sim" width="800"/>
 </p>
 
-## Getting Started
+## Primeiros Passos
 
-1. Use our [cloud-hosted version](https://sim.ai)
-2. Self-host using one of the methods below
+1. Use nossa [versão hospedada na nuvem](https://sim.ai)
+2. Hospede você mesmo usando um dos métodos abaixo
 
-## Self-Hosting Options
+## Opções de Auto-hospedagem
 
-### Option 1: NPM Package (Simplest)
+### Opção 1: Pacote NPM (Mais Simples)
 
-The easiest way to run Sim locally is using our [NPM package](https://www.npmjs.com/package/simstudio?activeTab=readme):
+A forma mais fácil de executar o Sim localmente é usando nosso [pacote NPM](https://www.npmjs.com/package/simstudio?activeTab=readme):
 
 ```bash
 npx simstudio
 ```
 
-After running these commands, open [http://localhost:3000/](http://localhost:3000/) in your browser.
+Após executar estes comandos, abra [http://localhost:3000/](http://localhost:3000/) no seu navegador.
 
-#### Options
+#### Opções
 
-- `-p, --port <port>`: Specify the port to run Sim on (default: 3000)
-- `--no-pull`: Skip pulling the latest Docker images
+- `-p, --port <porta>`: Especifique a porta para executar o Sim (padrão: 3000)
+- `--no-pull`: Pule o download das imagens Docker mais recentes
 
-#### Requirements
+#### Requisitos
 
-- Docker must be installed and running on your machine
+- Docker deve estar instalado e executando na sua máquina
 
-### Option 2: Docker Compose
+### Opção 2: Docker Compose
 
 ```bash
-# Clone the repository
+# Clone o repositório
 git clone https://github.com/simstudioai/sim.git
 
-# Navigate to the project directory
+# Navegue para o diretório do projeto
 cd sim
 
-# Start Sim
+# Inicie o Sim
 docker compose -f docker-compose.prod.yml up -d
 ```
 
-Access the application at [http://localhost:3000/](http://localhost:3000/)
+Acesse a aplicação em [http://localhost:3000/](http://localhost:3000/)
 
-#### Using Local Models with Ollama
+#### Usando Modelos Locais com Ollama
 
-Run Sim with local AI models using [Ollama](https://ollama.ai) - no external APIs required:
+Execute o Sim com modelos de IA locais usando [Ollama](https://ollama.ai) - nenhuma API externa necessária:
 
 ```bash
-# Start with GPU support (automatically downloads gemma3:4b model)
+# Inicie com suporte a GPU (baixa automaticamente o modelo gemma3:4b)
 docker compose -f docker-compose.ollama.yml --profile setup up -d
 
-# For CPU-only systems:
+# Para sistemas apenas com CPU:
 docker compose -f docker-compose.ollama.yml --profile cpu --profile setup up -d
 ```
 
-Wait for the model to download, then visit [http://localhost:3000](http://localhost:3000). Add more models with:
+Aguarde o modelo ser baixado, então visite [http://localhost:3000](http://localhost:3000). Adicione mais modelos com:
 ```bash
 docker compose -f docker-compose.ollama.yml exec ollama ollama pull llama3.1:8b
 ```
 
-### Option 3: Dev Containers
+### Opção 3: Dev Containers
 
-1. Open VS Code with the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-2. Open the project and click "Reopen in Container" when prompted
-3. Run `bun run dev:full` in the terminal or use the `sim-start` alias
-   - This starts both the main application and the realtime socket server
+1. Abra o VS Code com a [extensão Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+2. Abra o projeto e clique em "Reopen in Container" quando solicitado
+3. Execute `bun run dev:full` no terminal ou use o alias `sim-start`
+   - Isso inicia tanto a aplicação principal quanto o servidor de socket em tempo real
 
-### Option 4: Manual Setup
+### Opção 4: Configuração Manual
 
-**Requirements:**
-- [Bun](https://bun.sh/) runtime
-- PostgreSQL 12+ with [pgvector extension](https://github.com/pgvector/pgvector) (required for AI embeddings)
+**Requisitos:**
+- Runtime [Bun](https://bun.sh/)
+- PostgreSQL 12+ com [extensão pgvector](https://github.com/pgvector/pgvector) (necessário para embeddings de IA)
 
-**Note:** Sim uses vector embeddings for AI features like knowledge bases and semantic search, which requires the `pgvector` PostgreSQL extension.
+**Nota:** O Sim usa embeddings vetoriais para recursos de IA como bases de conhecimento e busca semântica, que requer a extensão `pgvector` do PostgreSQL.
 
-1. Clone and install dependencies:
+1. Clone e instale as dependências:
 
 ```bash
 git clone https://github.com/simstudioai/sim.git
@@ -99,85 +99,85 @@ cd sim
 bun install
 ```
 
-2. Set up PostgreSQL with pgvector:
+2. Configure o PostgreSQL com pgvector:
 
-You need PostgreSQL with the `vector` extension for embedding support. Choose one option:
+Você precisa do PostgreSQL com a extensão `vector` para suporte a embeddings. Escolha uma opção:
 
-**Option A: Using Docker (Recommended)**
+**Opção A: Usando Docker (Recomendado)**
 ```bash
-# Start PostgreSQL with pgvector extension
+# Inicie o PostgreSQL com extensão pgvector
 docker run --name simstudio-db \
-  -e POSTGRES_PASSWORD=your_password \
+  -e POSTGRES_PASSWORD=sua_senha \
   -e POSTGRES_DB=simstudio \
   -p 5432:5432 -d \
   pgvector/pgvector:pg17
 ```
 
-**Option B: Manual Installation**
-- Install PostgreSQL 12+ and the pgvector extension
-- See [pgvector installation guide](https://github.com/pgvector/pgvector#installation)
+**Opção B: Instalação Manual**
+- Instale PostgreSQL 12+ e a extensão pgvector
+- Veja o [guia de instalação do pgvector](https://github.com/pgvector/pgvector#installation)
 
-3. Set up environment:
+3. Configure o ambiente:
 
 ```bash
 cd apps/sim
-cp .env.example .env  # Configure with required variables (DATABASE_URL, BETTER_AUTH_SECRET, BETTER_AUTH_URL)
+cp .env.example .env  # Configure com as variáveis necessárias (DATABASE_URL, BETTER_AUTH_SECRET, BETTER_AUTH_URL)
 ```
 
-Update your `.env` file with the database URL:
+Atualize seu arquivo `.env` com a URL do banco de dados:
 ```bash
-DATABASE_URL="postgresql://postgres:your_password@localhost:5432/simstudio"
+DATABASE_URL="postgresql://postgres:sua_senha@localhost:5432/simstudio"
 ```
 
-4. Set up the database:
+4. Configure o banco de dados:
 
 ```bash
 bunx drizzle-kit migrate 
 ```
 
-5. Start the development servers:
+5. Inicie os servidores de desenvolvimento:
 
-**Recommended approach - run both servers together (from project root):**
+**Abordagem recomendada - execute ambos os servidores juntos (da raiz do projeto):**
 
 ```bash
 bun run dev:full
 ```
 
-This starts both the main Next.js application and the realtime socket server required for full functionality.
+Isso inicia tanto a aplicação Next.js principal quanto o servidor de socket em tempo real necessário para funcionalidade completa.
 
-**Alternative - run servers separately:**
+**Alternativa - execute os servidores separadamente:**
 
-Next.js app (from project root):
+Aplicação Next.js (da raiz do projeto):
 ```bash
 bun run dev
 ```
 
-Realtime socket server (from `apps/sim` directory in a separate terminal):
+Servidor de socket em tempo real (do diretório `apps/sim` em um terminal separado):
 ```bash
 cd apps/sim
 bun run dev:sockets
 ```
 
-## Tech Stack
+## Stack Tecnológica
 
 - **Framework**: [Next.js](https://nextjs.org/) (App Router)
 - **Runtime**: [Bun](https://bun.sh/)
-- **Database**: PostgreSQL with [Drizzle ORM](https://orm.drizzle.team)
-- **Authentication**: [Better Auth](https://better-auth.com)
+- **Banco de Dados**: PostgreSQL com [Drizzle ORM](https://orm.drizzle.team)
+- **Autenticação**: [Better Auth](https://better-auth.com)
 - **UI**: [Shadcn](https://ui.shadcn.com/), [Tailwind CSS](https://tailwindcss.com)
-- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
-- **Flow Editor**: [ReactFlow](https://reactflow.dev/)
-- **Docs**: [Fumadocs](https://fumadocs.vercel.app/)
+- **Gerenciamento de Estado**: [Zustand](https://zustand-demo.pmnd.rs/)
+- **Editor de Fluxo**: [ReactFlow](https://reactflow.dev/)
+- **Documentação**: [Fumadocs](https://fumadocs.vercel.app/)
 - **Monorepo**: [Turborepo](https://turborepo.org/)
-- **Realtime**: [Socket.io](https://socket.io/)
-- **Background Jobs**: [Trigger.dev](https://trigger.dev/)
+- **Tempo Real**: [Socket.io](https://socket.io/)
+- **Jobs em Background**: [Trigger.dev](https://trigger.dev/)
 
-## Contributing
+## Contribuindo
 
-We welcome contributions! Please see our [Contributing Guide](.github/CONTRIBUTING.md) for details.
+Damos as boas-vindas a contribuições! Por favor, veja nosso [Guia de Contribuição](.github/CONTRIBUTING.md) para detalhes.
 
-## License
+## Licença
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+Este projeto está licenciado sob a Licença Apache 2.0 - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-<p align="center">Made with ❤️ by the Sim Team</p>
+<p align="center">Feito com ❤️ pela Equipe Sim</p>

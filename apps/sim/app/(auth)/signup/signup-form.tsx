@@ -16,42 +16,42 @@ import { SocialLoginButtons } from '@/app/(auth)/components/social-login-buttons
 const logger = createLogger('SignupForm')
 
 const PASSWORD_VALIDATIONS = {
-  minLength: { regex: /.{8,}/, message: 'Password must be at least 8 characters long.' },
+  minLength: { regex: /.{8,}/, message: 'A senha deve ter pelo menos 8 caracteres.' },
   uppercase: {
     regex: /(?=.*?[A-Z])/,
-    message: 'Password must include at least one uppercase letter.',
+    message: 'A senha deve incluir pelo menos uma letra maiúscula.',
   },
   lowercase: {
     regex: /(?=.*?[a-z])/,
-    message: 'Password must include at least one lowercase letter.',
+    message: 'A senha deve incluir pelo menos uma letra minúscula.',
   },
-  number: { regex: /(?=.*?[0-9])/, message: 'Password must include at least one number.' },
+  number: { regex: /(?=.*?[0-9])/, message: 'A senha deve incluir pelo menos um número.' },
   special: {
     regex: /(?=.*?[#?!@$%^&*-])/,
-    message: 'Password must include at least one special character.',
+    message: 'A senha deve incluir pelo menos um caractere especial.',
   },
 }
 
 const NAME_VALIDATIONS = {
   required: {
     test: (value: string) => Boolean(value && typeof value === 'string'),
-    message: 'Name is required.',
+    message: 'Nome é obrigatório.',
   },
   notEmpty: {
     test: (value: string) => value.trim().length > 0,
-    message: 'Name cannot be empty.',
+    message: 'Nome não pode estar vazio.',
   },
   validCharacters: {
     regex: /^[\p{L}\s\-']+$/u,
-    message: 'Name can only contain letters, spaces, hyphens, and apostrophes.',
+    message: 'Nome pode conter apenas letras, espaços, hífens e apostrofes.',
   },
   noConsecutiveSpaces: {
     regex: /^(?!.*\s\s).*$/,
-    message: 'Name cannot contain consecutive spaces.',
+    message: 'Nome não pode conter espaços consecutivos.',
   },
   noLeadingTrailingSpaces: {
     test: (value: string) => value === value.trim(),
-    message: 'Name cannot start or end with spaces.',
+    message: 'Nome não pode começar ou terminar com espaços.',
   },
 }
 
@@ -268,7 +268,7 @@ function SignupFormContent({
       // Check if name will be truncated and warn user
       const trimmedName = name.trim()
       if (trimmedName.length > 100) {
-        setNameErrors(['Name will be truncated to 100 characters. Please shorten your name.'])
+        setNameErrors(['Nome será truncado para 100 caracteres. Por favor, encurte seu nome.'])
         setShowNameValidationError(true)
         setIsLoading(false)
         return
@@ -299,18 +299,18 @@ function SignupFormContent({
               errorMessage.push('Email signup is currently disabled.')
               setEmailError(errorMessage[0])
             } else if (ctx.error.code?.includes('INVALID_EMAIL')) {
-              errorMessage.push('Please enter a valid email address.')
+              errorMessage.push('Por favor, digite um endereço de email válido.')
               setEmailError(errorMessage[0])
             } else if (ctx.error.code?.includes('PASSWORD_TOO_SHORT')) {
-              errorMessage.push('Password must be at least 8 characters long.')
+              errorMessage.push('A senha deve ter pelo menos 8 caracteres.')
               setPasswordErrors(errorMessage)
               setShowValidationError(true)
             } else if (ctx.error.code?.includes('PASSWORD_TOO_LONG')) {
-              errorMessage.push('Password must be less than 128 characters long.')
+              errorMessage.push('A senha deve ter menos de 128 caracteres.')
               setPasswordErrors(errorMessage)
               setShowValidationError(true)
             } else if (ctx.error.code?.includes('network')) {
-              errorMessage.push('Network error. Please check your connection and try again.')
+              errorMessage.push('Erro de rede. Verifique sua conexão e tente novamente.')
               setPasswordErrors(errorMessage)
               setShowValidationError(true)
             } else if (ctx.error.code?.includes('rate limit')) {
@@ -368,8 +368,8 @@ function SignupFormContent({
   return (
     <div className='space-y-6'>
       <div className='space-y-2 text-center'>
-        <h1 className='font-semibold text-[32px] text-white tracking-tight'>Create Account</h1>
-        <p className='text-neutral-400 text-sm'>Enter your details to create a new account</p>
+        <h1 className='font-semibold text-[32px] text-white tracking-tight'>Criar Conta</h1>
+        <p className='text-neutral-400 text-sm'>Digite seus detalhes para criar uma nova conta</p>
       </div>
 
       <div className='flex flex-col gap-6'>
@@ -391,16 +391,16 @@ function SignupFormContent({
             <div className='space-y-4'>
               <div className='space-y-2'>
                 <Label htmlFor='name' className='text-neutral-300'>
-                  Full Name
+                  Nome Completo
                 </Label>
                 <Input
                   id='name'
                   name='name'
-                  placeholder='Enter your name'
+                  placeholder='Digite seu nome'
                   type='text'
                   autoCapitalize='words'
                   autoComplete='name'
-                  title='Name can only contain letters, spaces, hyphens, and apostrophes'
+                  title='Nome pode conter apenas letras, espaços, hífens e apostrofes'
                   value={name}
                   onChange={handleNameChange}
                   className={cn(
@@ -425,7 +425,7 @@ function SignupFormContent({
                 <Input
                   id='email'
                   name='email'
-                  placeholder='Enter your email'
+                  placeholder='Digite seu email'
                   autoCapitalize='none'
                   autoComplete='email'
                   autoCorrect='off'
@@ -452,7 +452,7 @@ function SignupFormContent({
               </div>
               <div className='space-y-2'>
                 <Label htmlFor='password' className='text-neutral-300'>
-                  Password
+                  Senha
                 </Label>
                 <div className='relative'>
                   <Input
@@ -461,7 +461,7 @@ function SignupFormContent({
                     type={showPassword ? 'text' : 'password'}
                     autoCapitalize='none'
                     autoComplete='new-password'
-                    placeholder='Enter your password'
+                    placeholder='Digite sua senha'
                     autoCorrect='off'
                     value={password}
                     onChange={handlePasswordChange}
@@ -491,18 +491,18 @@ function SignupFormContent({
               className='flex h-11 w-full items-center justify-center gap-2 bg-[var(--brand-primary-hex)] font-medium text-base text-white shadow-[var(--brand-primary-hex)]/20 shadow-lg transition-colors duration-200 hover:bg-[var(--brand-primary-hover-hex)]'
               disabled={isLoading}
             >
-              {isLoading ? 'Creating account...' : 'Create Account'}
+              {isLoading ? 'Criando conta...' : 'Criar Conta'}
             </Button>
           </form>
         </div>
 
         <div className='text-center text-sm'>
-          <span className='text-neutral-400'>Already have an account? </span>
+          <span className='text-neutral-400'>Já tem uma conta? </span>
           <Link
             href={isInviteFlow ? `/login?invite_flow=true&callbackUrl=${redirectUrl}` : '/login'}
             className='font-medium text-[var(--brand-accent-hex)] underline-offset-4 transition hover:text-[var(--brand-accent-hover-hex)] hover:underline'
           >
-            Sign in
+            Entrar
           </Link>
         </div>
       </div>
@@ -521,7 +521,7 @@ export default function SignupPage({
 }) {
   return (
     <Suspense
-      fallback={<div className='flex h-screen items-center justify-center'>Loading...</div>}
+      fallback={<div className='flex h-screen items-center justify-center'>Carregando...</div>}
     >
       <SignupFormContent
         githubAvailable={githubAvailable}

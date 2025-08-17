@@ -1,6 +1,6 @@
 ---
-title: Blocks
-description: The building components of your AI workflows
+title: Blocos
+description: Os componentes de construção dos seus workflows de IA
 ---
 
 import { Card, Cards } from 'fumadocs-ui/components/card'
@@ -9,121 +9,121 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs'
 import { BlockTypes } from '@/components/ui/block-types'
 import { Video } from '@/components/ui/video'
 
-Blocks are the building components you connect together to create AI workflows. Think of them as specialized modules that each handle a specific task—from chatting with AI models to making API calls or processing data.
+Blocos são os componentes de construção que você conecta para criar workflows de IA. Pense neles como módulos especializados que cada um lida com uma tarefa específica—desde conversar com modelos de IA até fazer chamadas de API ou processar dados.
 
 <div className="w-full max-w-2xl mx-auto overflow-hidden rounded-lg">
   <Video src="connections.mp4" />
 </div>
 
-## Core Block Types
+## Tipos de Blocos Principais
 
-Sim provides seven core block types that handle the essential functions of AI workflows:
+O Sim fornece sete tipos de blocos principais que lidam com as funções essenciais dos workflows de IA:
 
-### Processing Blocks
-- **[Agent](/blocks/agent)** - Chat with AI models (OpenAI, Anthropic, Google, local models)
-- **[Function](/blocks/function)** - Run custom JavaScript/TypeScript code
-- **[API](/blocks/api)** - Connect to external services via HTTP requests
+### Blocos de Processamento
+- **[Agente](/blocks/agent)** - Converse com modelos de IA (OpenAI, Anthropic, Google, modelos locais)
+- **[Função](/blocks/function)** - Execute código JavaScript/TypeScript personalizado
+- **[API](/blocks/api)** - Conecte-se a serviços externos via requisições HTTP
 
-### Logic Blocks
-- **[Condition](/blocks/condition)** - Branch workflow paths based on boolean expressions
-- **[Router](/blocks/router)** - Use AI to intelligently route requests to different paths
-- **[Evaluator](/blocks/evaluator)** - Score and assess content quality using AI
+### Blocos de Lógica
+- **[Condição](/blocks/condition)** - Ramifique caminhos de workflow baseados em expressões booleanas
+- **[Roteador](/blocks/router)** - Use IA para rotear inteligentemente requisições para diferentes caminhos
+- **[Avaliador](/blocks/evaluator)** - Pontue e avalie qualidade de conteúdo usando IA
 
-### Output Blocks
-- **[Response](/blocks/response)** - Format and return final results from your workflow
+### Blocos de Saída
+- **[Resposta](/blocks/response)** - Formate e retorne resultados finais do seu workflow
 
 <BlockTypes />
 
-## How Blocks Work
+## Como os Blocos Funcionam
 
-Each block has three main components:
+Cada bloco tem três componentes principais:
 
-**Inputs**: Data coming into the block from other blocks or user input
-**Configuration**: Settings that control how the block behaves
-**Outputs**: Data the block produces for other blocks to use
+**Entradas**: Dados vindos para o bloco de outros blocos ou entrada do usuário
+**Configuração**: Configurações que controlam como o bloco se comporta
+**Saídas**: Dados que o bloco produz para outros blocos usarem
 
 <Steps>
   <Step>
-    <strong>Receive Input</strong>: Block receives data from connected blocks or user input
+    <strong>Receber Entrada</strong>: Bloco recebe dados de blocos conectados ou entrada do usuário
   </Step>
   <Step>
-    <strong>Process</strong>: Block processes the input according to its configuration
+    <strong>Processar</strong>: Bloco processa a entrada de acordo com sua configuração
   </Step>
   <Step>
-    <strong>Output Results</strong>: Block produces output data for the next blocks in the workflow
+    <strong>Produzir Resultados</strong>: Bloco produz dados de saída para os próximos blocos no workflow
   </Step>
 </Steps>
 
-## Connecting Blocks
+## Conectando Blocos
 
-You create workflows by connecting blocks together. The output of one block becomes the input of another:
+Você cria workflows conectando blocos juntos. A saída de um bloco se torna a entrada de outro:
 
-- **Drag to connect**: Drag from an output port to an input port
-- **Multiple connections**: One output can connect to multiple inputs
-- **Branching paths**: Some blocks can route to different paths based on conditions
+- **Arraste para conectar**: Arraste de uma porta de saída para uma porta de entrada
+- **Múltiplas conexões**: Uma saída pode conectar a múltiplas entradas
+- **Caminhos ramificados**: Alguns blocos podem rotear para diferentes caminhos baseados em condições
 
 <div className="w-full max-w-2xl mx-auto overflow-hidden rounded-lg">
   <Video src="connections.mp4" />
 </div>
 
-## Common Patterns
+## Padrões Comuns
 
-### Sequential Processing
-Connect blocks in a chain where each block processes the output of the previous one:
+### Processamento Sequencial
+Conecte blocos em uma cadeia onde cada bloco processa a saída do anterior:
 ```
-User Input → Agent → Function → Response
-```
-
-### Conditional Branching
-Use Condition or Router blocks to create different paths:
-```
-User Input → Router → Agent A (for questions)
-                   → Agent B (for commands)
+Entrada do Usuário → Agente → Função → Resposta
 ```
 
-### Quality Control
-Use Evaluator blocks to assess and filter outputs:
+### Ramificação Condicional
+Use blocos de Condição ou Roteador para criar diferentes caminhos:
 ```
-Agent → Evaluator → Condition → Response (if good)
-                              → Agent (retry if bad)
+Entrada do Usuário → Roteador → Agente A (para perguntas)
+                              → Agente B (para comandos)
 ```
 
-## Block Configuration
+### Controle de Qualidade
+Use blocos Avaliador para avaliar e filtrar saídas:
+```
+Agente → Avaliador → Condição → Resposta (se bom)
+                               → Agente (tentar novamente se ruim)
+```
 
-Each block type has specific configuration options:
+## Configuração de Blocos
 
-**All Blocks**:
-- Input/output connections
-- Error handling behavior
-- Execution timeout settings
+Cada tipo de bloco tem opções de configuração específicas:
 
-**AI Blocks** (Agent, Router, Evaluator):
-- Model selection (OpenAI, Anthropic, Google, local)
-- API keys and authentication
-- Temperature and other model parameters
-- System prompts and instructions
+**Todos os Blocos**:
+- Conexões de entrada/saída
+- Comportamento de tratamento de erros
+- Configurações de timeout de execução
 
-**Logic Blocks** (Condition, Function):
-- Custom expressions or code
-- Variable references
-- Execution environment settings
+**Blocos de IA** (Agente, Roteador, Avaliador):
+- Seleção de modelo (OpenAI, Anthropic, Google, local)
+- Chaves de API e autenticação
+- Temperatura e outros parâmetros do modelo
+- Prompts de sistema e instruções
 
-**Integration Blocks** (API, Response):
-- Endpoint configuration
-- Headers and authentication
-- Request/response formatting
+**Blocos de Lógica** (Condição, Função):
+- Expressões ou código personalizados
+- Referências de variáveis
+- Configurações de ambiente de execução
+
+**Blocos de Integração** (API, Resposta):
+- Configuração de endpoint
+- Cabeçalhos e autenticação
+- Formatação de requisição/resposta
 
 <Cards>
-  <Card title="Agent Block" href="/blocks/agent">
-    Connect to AI models and create intelligent responses
+  <Card title="Bloco Agente" href="/blocks/agent">
+    Conecte-se a modelos de IA e crie respostas inteligentes
   </Card>
-  <Card title="Function Block" href="/blocks/function">
-    Run custom code to process and transform data
+  <Card title="Bloco Função" href="/blocks/function">
+    Execute código personalizado para processar e transformar dados
   </Card>
-  <Card title="API Block" href="/blocks/api">
-    Integrate with external services and APIs
+  <Card title="Bloco API" href="/blocks/api">
+    Integre com serviços externos e APIs
   </Card>
-  <Card title="Condition Block" href="/blocks/condition">
-    Create branching logic based on data evaluation
+  <Card title="Bloco Condição" href="/blocks/condition">
+    Crie lógica de ramificação baseada em avaliação de dados
   </Card>
 </Cards>
