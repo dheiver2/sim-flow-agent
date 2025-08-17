@@ -1,6 +1,6 @@
-# Sim Python SDK
+# Mangaba Flow Python SDK
 
-The official Python SDK for [Sim](https://sim.ai), allowing you to execute workflows programmatically from your Python applications.
+The official Python SDK for [Mangaba Flow](https://sim.ai), allowing you to execute workflows programmatically from your Python applications.
 
 ## Installation
 

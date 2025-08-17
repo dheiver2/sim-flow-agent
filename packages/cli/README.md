@@ -1,10 +1,10 @@
-# Sim CLI
+# Mangaba Flow CLI
 
-Sim CLI allows you to run [Sim](https://sim.ai) using Docker with a single command.
+Mangaba Flow CLI allows you to run [Mangaba Flow](https://sim.ai) using Docker with a single command.
 
 ## Installation
 
-To install the Sim CLI globally, use:
+To install the Mangaba Flow CLI globally, use:
 
 ```bash
 npm install -g simstudio
@@ -12,7 +12,7 @@ npm install -g simstudio
 
 ## Usage
 
-To start Sim, simply run:
+To start Mangaba Flow, simply run:
 
 ```bash
 simstudio

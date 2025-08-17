@@ -1,6 +1,6 @@
-# Sim Helm Chart
+# Mangaba Flow Helm Chart
 
-This Helm chart deploys Sim, a lightweight AI agent workflow platform, on Kubernetes.
+This Helm chart deploys Mangaba Flow, a lightweight AI agent workflow platform, on Kubernetes.
 
 ## Prerequisites
 

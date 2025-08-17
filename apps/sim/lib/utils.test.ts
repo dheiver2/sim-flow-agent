@@ -45,9 +45,9 @@ afterEach(() => {
 })
 
 describe('generateApiKey', () => {
-  it.concurrent('should generate API key with sim_ prefix', () => {
+  it.concurrent('should generate API key with mangaba_ prefix', () => {
     const key = generateApiKey()
-    expect(key).toMatch(/^sim_/)
+    expect(key).toMatch(/^mangaba_/)
   })
 
   it.concurrent('should generate unique API keys for each call', () => {
@@ -58,8 +58,8 @@ describe('generateApiKey', () => {
 
   it.concurrent('should generate API keys of correct length', () => {
     const key = generateApiKey()
-    // Expected format: 'sim_' + 32 random characters
-    expect(key.length).toBe(36)
+    // Expected format: 'mangaba_' + 32 random characters
+    expect(key.length).toBe(40)
   })
 })
 

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="apps/sim/public/static/sim.png" alt="Logo do Sim" width="500"/>
+  <img src="apps/sim/public/static/sim.png" alt="Logo do Mangaba Flow" width="500"/>
 </p>
 
 <p align="center">
@@ -11,11 +11,11 @@
 </p>
 
 <p align="center">
-  <strong>Sim</strong> é uma plataforma leve e amigável para construir workflows de agentes de IA.
+  <strong>Mangaba Flow</strong> é uma plataforma leve e amigável para construir workflows de agentes de IA.
 </p>
 
 <p align="center">
-  <img src="apps/sim/public/static/demo.gif" alt="Demo do Sim" width="800"/>
+  <img src="apps/sim/public/static/demo.gif" alt="Demo do Mangaba Flow" width="800"/>
 </p>
 
 ## Primeiros Passos
@@ -27,7 +27,7 @@
 
 ### Opção 1: Pacote NPM (Mais Simples)
 
-A forma mais fácil de executar o Sim localmente é usando nosso [pacote NPM](https://www.npmjs.com/package/simstudio?activeTab=readme):
+A forma mais fácil de executar o Mangaba Flow localmente é usando nosso [pacote NPM](https://www.npmjs.com/package/simstudio?activeTab=readme):
 
 ```bash
 npx simstudio
@@ -37,7 +37,7 @@ Após executar estes comandos, abra [http://localhost:3000/](http://localhost:30
 
 #### Opções
 
-- `-p, --port <porta>`: Especifique a porta para executar o Sim (padrão: 3000)
+- `-p, --port <porta>`: Especifique a porta para executar o Mangaba Flow (padrão: 3000)
 - `--no-pull`: Pule o download das imagens Docker mais recentes
 
 #### Requisitos
@@ -53,7 +53,7 @@ git clone https://github.com/simstudioai/sim.git
 # Navegue para o diretório do projeto
 cd sim
 
-# Inicie o Sim
+# Inicie o Mangaba Flow
 docker compose -f docker-compose.prod.yml up -d
 ```
 
@@ -61,7 +61,7 @@ Acesse a aplicação em [http://localhost:3000/](http://localhost:3000/)
 
 #### Usando Modelos Locais com Ollama
 
-Execute o Sim com modelos de IA locais usando [Ollama](https://ollama.ai) - nenhuma API externa necessária:
+Execute o Mangaba Flow com modelos de IA locais usando [Ollama](https://ollama.ai) - nenhuma API externa necessária:
 
 ```bash
 # Inicie com suporte a GPU (baixa automaticamente o modelo gemma3:4b)
@@ -89,7 +89,7 @@ docker compose -f docker-compose.ollama.yml exec ollama ollama pull llama3.1:8b
 - Runtime [Bun](https://bun.sh/)
 - PostgreSQL 12+ com [extensão pgvector](https://github.com/pgvector/pgvector) (necessário para embeddings de IA)
 
-**Nota:** O Sim usa embeddings vetoriais para recursos de IA como bases de conhecimento e busca semântica, que requer a extensão `pgvector` do PostgreSQL.
+**Nota:** O Mangaba Flow usa embeddings vetoriais para recursos de IA como bases de conhecimento e busca semântica, que requer a extensão `pgvector` do PostgreSQL.
 
 1. Clone e instale as dependências:
 
@@ -180,4 +180,4 @@ Damos as boas-vindas a contribuições! Por favor, veja nosso [Guia de Contribui
 
 Este projeto está licenciado sob a Licença Apache 2.0 - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-<p align="center">Feito com ❤️ pela Equipe Sim</p>
+<p align="center">Feito com ❤️ pela Equipe Mangaba Flow</p>

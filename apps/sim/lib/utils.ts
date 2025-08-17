@@ -266,11 +266,11 @@ export function formatDuration(durationMs: number): string {
 }
 
 /**
- * Generates a standardized API key with the 'sim_' prefix
+ * Generates a standardized API key with the 'mangaba_' prefix
  * @returns A new API key string
  */
 export function generateApiKey(): string {
-  return `sim_${nanoid(32)}`
+  return `mangaba_${nanoid(32)}`
 }
 
 /**
