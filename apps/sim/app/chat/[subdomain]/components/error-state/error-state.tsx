@@ -54,7 +54,7 @@ export function ChatErrorState({ error, starCount }: ChatErrorStateProps) {
           </a>
           <ChatHeader chatConfig={null} starCount={starCount} />
         </div>
-        <h2 className='mb-2 font-bold text-red-500 text-xl'>Error</h2>
+        <h2 className='mb-2 font-bold text-red-500 text-xl'>Erro</h2>
         <p className='text-gray-700'>{error}</p>
       </div>
     </div>

@@ -59,10 +59,10 @@ const getToolIdFromBlock = (blockType: string): string | undefined => {
 
 export const AgentBlock: BlockConfig<AgentResponse> = {
   type: 'agent',
-  name: 'Agent',
-  description: 'Build an agent',
+  name: 'Agente',
+  description: 'Construir um agente',
   longDescription:
-    'Create powerful AI agents using any LLM provider with customizable system prompts and tool integrations.',
+    'Crie agentes de IA poderosos usando qualquer provedor LLM com prompts de sistema personalizáveis e integrações de ferramentas.',
   docsLink: 'https://docs.sim.ai/blocks/agent',
   category: 'blocks',
   bgColor: 'var(--brand-primary-hover-hex)',
@@ -70,10 +70,10 @@ export const AgentBlock: BlockConfig<AgentResponse> = {
   subBlocks: [
     {
       id: 'systemPrompt',
-      title: 'System Prompt',
+      title: 'Prompt do Sistema',
       type: 'long-input',
       layout: 'full',
-      placeholder: 'Enter system prompt...',
+      placeholder: 'Digite o prompt do sistema...',
       rows: 5,
       wandConfig: {
         enabled: true,
@@ -128,29 +128,29 @@ Present findings in executive-ready formats with source citations, highlight key
 
 ### FINAL INSTRUCTION
 Create a system prompt appropriately detailed for the request, using clear language and relevant tool instructions.`,
-        placeholder: 'Describe the AI agent you want to create...',
+        placeholder: 'Descreva o agente de IA que você quer criar...',
         generationType: 'system-prompt',
       },
     },
     {
       id: 'userPrompt',
-      title: 'User Prompt',
+      title: 'Prompt do Usuário',
       type: 'long-input',
       layout: 'full',
-      placeholder: 'Enter context or user message...',
+      placeholder: 'Digite contexto ou mensagem do usuário...',
       rows: 3,
     },
     {
       id: 'memories',
-      title: 'Memories',
+      title: 'Memórias',
       type: 'short-input',
       layout: 'full',
-      placeholder: 'Connect memory block output...',
+      placeholder: 'Conecte saída do bloco de memória...',
       mode: 'advanced',
     },
     {
       id: 'model',
-      title: 'Model',
+      title: 'Modelo',
       type: 'combobox',
       layout: 'half',
       placeholder: 'Type or select a model...',
@@ -168,7 +168,7 @@ Create a system prompt appropriately detailed for the request, using clear langu
     },
     {
       id: 'temperature',
-      title: 'Temperature',
+      title: 'Temperatura',
       type: 'slider',
       layout: 'half',
       min: 0,
@@ -180,7 +180,7 @@ Create a system prompt appropriately detailed for the request, using clear langu
     },
     {
       id: 'temperature',
-      title: 'Temperature',
+      title: 'Temperatura',
       type: 'slider',
       layout: 'half',
       min: 0,
@@ -192,7 +192,7 @@ Create a system prompt appropriately detailed for the request, using clear langu
     },
     {
       id: 'temperature',
-      title: 'Temperature',
+      title: 'Temperatura',
       type: 'slider',
       layout: 'full',
       min: 0,
@@ -433,26 +433,26 @@ Example 3 (Array Input):
     },
   },
   inputs: {
-    systemPrompt: { type: 'string', description: 'Initial system instructions' },
-    userPrompt: { type: 'string', description: 'User message or context' },
-    memories: { type: 'json', description: 'Agent memory data' },
-    model: { type: 'string', description: 'AI model to use' },
-    apiKey: { type: 'string', description: 'Provider API key' },
-    azureEndpoint: { type: 'string', description: 'Azure OpenAI endpoint URL' },
-    azureApiVersion: { type: 'string', description: 'Azure API version' },
+    systemPrompt: { type: 'string', description: 'Instruções iniciais do sistema' },
+    userPrompt: { type: 'string', description: 'Mensagem do usuário ou contexto' },
+    memories: { type: 'json', description: 'Dados de memória do agente' },
+    model: { type: 'string', description: 'Modelo de IA para usar' },
+    apiKey: { type: 'string', description: 'Chave da API do provedor' },
+    azureEndpoint: { type: 'string', description: 'URL do endpoint Azure OpenAI' },
+    azureApiVersion: { type: 'string', description: 'Versão da API do Azure' },
     responseFormat: {
       type: 'json',
-      description: 'JSON response format schema',
+      description: 'Esquema de formato de resposta JSON',
       schema: {
         type: 'object',
         properties: {
           name: {
             type: 'string',
-            description: 'A name for your schema (optional)',
+            description: 'Um nome para seu esquema (opcional)',
           },
           schema: {
             type: 'object',
-            description: 'The JSON Schema definition',
+            description: 'A definição do JSON Schema',
             properties: {
               type: {
                 type: 'string',
@@ -488,9 +488,9 @@ Example 3 (Array Input):
     tools: { type: 'json', description: 'Available tools configuration' },
   },
   outputs: {
-    content: { type: 'string', description: 'Generated response content' },
-    model: { type: 'string', description: 'Model used for generation' },
-    tokens: { type: 'any', description: 'Token usage statistics' },
-    toolCalls: { type: 'any', description: 'Tool calls made' },
+    content: { type: 'string', description: 'Conteúdo da resposta gerada' },
+    model: { type: 'string', description: 'Modelo usado para geração' },
+    tokens: { type: 'any', description: 'Estatísticas de uso de tokens' },
+    toolCalls: { type: 'any', description: 'Chamadas de ferramentas feitas' },
   },
 }
